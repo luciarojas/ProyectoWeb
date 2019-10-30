@@ -1,0 +1,32 @@
+<!----->
+<nav class="navbar is-psaced is-link" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://www.utn.ac.cr/sites/all/themes/utn_lx/logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
+      <a class="navbar-item" routerLink="/">
+        Home
+      </a>
+        <a class="navbar-item"routerLink="/rubro">
+        Rubros
+        
+      </a>
+      <a class="navbar-item" routerLink="/nota">
+        Notas Rubros
+        
+      </a>
+    </div>
+  </div>
+</nav>
+
+

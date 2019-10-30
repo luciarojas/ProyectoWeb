@@ -1,0 +1,49 @@
+        <div class="field">
+                <label class="label">Cédula:207660771</label>
+        </div>
+        <div class="field">
+                <label class="label">Nombre: Maria Lucia Rojas Campos</label>
+        </div>
+        <div *ngIf="show_form">
+                        <button class="button is-primary" (click)=" save()" >Save</button>
+                      
+                          <div class="field">
+                          <label class="label">Nota:</label>
+                                <div class="control">
+                                        <input [(ngModel)]="current_rubro.nota" class="input" type="number" required min="0" >
+                                </div>
+                         </div>     
+        </div>
+        <table class="table" >
+                <thead>
+                        <tr>
+                                <th>Id</th>
+                                <th>Tipo</th>
+                                <th>Nota</th>
+                                <th>Porcentaje Obtenido</th>
+                        </tr>
+                        <tr *ngFor="let rubro of rubros">
+                                <td>{{rubro.id}}</td>
+                                <td>{{rubro.descripcion}} ({{rubro.porcentaje}}%)</td>
+                                <td>{{rubro.nota}} </td>
+                                <td>{{rubro.porobpentido}}%</td>
+                               
+
+                               <td>
+                                     <button class="button is-link" (click)="edit(rubro)">Nota</button>
+                               </td>          
+                        </tr>
+                       
+                </thead>
+        </table>
+        <article class="message is-danger">
+        <div class="message-body" role="alert" *ngIf="mnjs == false">
+                La suma de los rubros es {{sumaPorcentaje}}%, no paso!
+        </div>
+        </article>
+        <article class="message is-success">
+                <div class="message-body" role="alert" *ngIf="mnjs == true">
+                La suma de los rubros es {{sumaPorcentaje}}%, Paso!
+                </div>
+        </article>
+             

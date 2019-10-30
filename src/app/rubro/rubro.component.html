@@ -1,0 +1,67 @@
+<!---->
+   <div class="table-container"></div>
+ 
+ <div *ngIf="show_form">
+    <button class="button is-primary" (click)=" save()" >Save</button>
+    <label class="label">Tipo:</label>
+      <div class="select">
+          <select [(ngModel)]="current_rubro.tipo" required>
+            <option>Tarea</option>
+            <option>Quices</option>
+            <option>Examen</option>
+            <option>Proyecto</option>
+            <option>Exposición</option>
+          </select>
+      </div>
+      <div class="field">
+          <label class="label">Descripcion:</label>
+          <div class="control">
+            <input [(ngModel)]="current_rubro.descripcion" class="input" type="text" required >
+          </div>
+      </div>
+
+      <div class="field">
+          <label class="label">Porcentaje:</label>
+          <div class="control">
+            <input  [(ngModel)]="current_rubro.porcentaje" class="input" type="number" required min="0">
+          </div>
+      </div>
+
+  </div>
+  <table class="table" >
+    <thead>
+        <tr>
+          <th>Id</th>
+          <th><abbr title="Played">Tipo</abbr></th>
+          <th><abbr title="Won">Descripcion</abbr></th>
+          <th><abbr title="Drawn">Porcentaje</abbr></th>
+          <th>
+            <button class="button is-success" (click)="add()">Nuevo</button>
+          </th>
+        </tr>
+        <tr *ngFor="let rubro of rubros">
+          <td>{{rubro.id}}</td>
+          <td>{{rubro.tipo}}</td>
+          <td>{{rubro.descripcion}}</td>
+          <td>{{rubro.porcentaje}}%</td>
+          <td>
+            <button class="button is-danger" (click)="delete(rubro)">Eliminar</button>
+            <button class="button is-link" (click)="edit(rubro)">Editar</button>
+
+          </td>
+        </tr>
+      </thead>
+</table>
+<article class="message is-danger">
+    <div class="message-body" role="alert" *ngIf="mnjs == false">
+      La suma de los rubros es {{sumaPorcentaje}}%, el porcentaje  deberia ser igual a 100%!
+    </div>
+
+  </article>
+  <article class="message is-success">
+      <div class="message-body" role="alert" *ngIf="mnjs == true">
+        La suma de los rubros es {{sumaPorcentaje}}%!
+      </div>
+  
+    </article>
+ 
